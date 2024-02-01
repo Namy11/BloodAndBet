@@ -2,7 +2,9 @@ import "../styles/Head.css";
 
 function Head() {
   return (
-    <h1>Jouer comporte des risques: endettement, isolement, dépendance !</h1>
+    <div className="BandeauNoir">
+      <h1>Jouer comporte des risques: endettement, isolement, dépendance !</h1>
+    </div>
   );
 }
 
