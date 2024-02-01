@@ -1,0 +1,13 @@
+* {
+  --primary-color: #9c0909;
+  --secondary-color: #efb200;
+  --third-color: #000000;
+
+  --font-title: "TT Interphases Mono";
+  --font-text: "29LT Zarid Text";
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url("../assets/icons8-epee-67.png"), auto;
+}

@@ -1,0 +1,35 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--third-color);
+  font-size: 1.1rem;
+  color: white;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+}
+
+.Logo img {
+  width: 75px;
+  margin-right: 10px;
+}
+
+.RightSection {
+  display: flex;
+}
+
+.RightSection span {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.Logo span {
+  cursor: pointer;
+}
+.Header span:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
