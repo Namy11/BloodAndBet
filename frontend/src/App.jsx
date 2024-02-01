@@ -1,6 +1,7 @@
 import Head from "./components/Head";
 import Header from "./components/Header";
-import "./styles/App.css";
+import "./App.css";
+import Card from "./components/Card";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <header>
         <Header />
       </header>
+      <Card />
     </>
   );
 }

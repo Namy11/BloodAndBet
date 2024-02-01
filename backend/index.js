@@ -1,61 +1,88 @@
-const express = require("express");
+// const cors = require('cors');
+const express = require('express');
 
 const app = express();
 const port = 8000;
 
+app.use(cors());
+
 const gladiators = [
   {
     id: 1,
-    name: "Testus1",
-    attack: 8,
-    defense: 5,
+    name: 'Kamiculus',
+    overall: '6.75/10',
+    attack: 10,
+    defense: 7,
+    dexterity: 3,
+    resistance: 7,
   },
   {
     id: 2,
-    name: "Testus2",
-    attack: 8,
-    defense: 5,
+    name: 'Chichilus',
+    overall: '6.1/10',
+    attack: 5,
+    defense: 7,
+    dexterity: 7,
+    resistance: 5.5,
   },
   {
     id: 3,
-    name: "Testus3",
-    attack: 8,
-    defense: 5,
+    name: 'Namycunus',
+    overall: '6.3/10',
+    attack: 5,
+    defense: 8,
+    dexterity: 7,
+    resistance: 5.5,
   },
   {
     id: 4,
-    name: "Testus9",
-    attack: 8,
-    defense: 5,
+    name: 'Mansorus',
+    overall: '6.75/10',
+    attack: 9,
+    defense: 3,
+    dexterity: 6,
+    resistance: 9,
   },
   {
     id: 5,
-    name: "Testus5",
-    attack: 8,
-    defense: 5,
+    name: 'Commodus',
+    overall: '4.7/10',
+    attack: 7.5,
+    defense: 4.5,
+    dexterity: 5,
+    resistance: 2,
   },
   {
     id: 6,
-    name: "Testus6",
-    attack: 8,
+    name: 'Slavicus',
+    overall: '6.7/10',
+    attack: 7,
     defense: 5,
+    dexterity: 9,
+    resistance: 6,
   },
   {
     id: 7,
-    name: "Testus7",
-    attack: 8,
-    defense: 12,
+    name: 'Spartacus',
+    overall: '3.5/10',
+    attack: 4,
+    defense: 5,
+    dexterity: 4,
+    resistance: 1,
   },
   {
     id: 8,
-    name: "Testus8",
-    attack: 8,
-    defense: 5,
+    name: 'Carpophorus',
+    overall: '5.5/10',
+    attack: 1,
+    defense: 10,
+    dexterity: 1,
+    resistance: 10,
   },
 ];
 
 const welcome = (req, res) => {
-  res.send("API GLADIATORS");
+  res.send('API GLADIATORS');
 };
 
 const getAllGladiators = (req, res) => {
@@ -64,7 +91,7 @@ const getAllGladiators = (req, res) => {
 
 const getGladiatorsById = (req, res) => {
   const gladId = parseInt(req.params.id, 10);
-  const gladiator = gladiators.find((gladiator) => gladiator.id === gladId);
+  const gladiator = gladiators.find(() => gladiator.id === gladId);
 
   if (gladiator) {
     res.json(gladiator);
@@ -77,9 +104,8 @@ const getGladiatorsById = (req, res) => {
 
 const getGladiatorByName = (req, res) => {
   const search = req.query.name.toLocaleLowerCase();
-  const gladList = gladiators.filter((gladiator) =>
-    gladiator.name.toLocaleLowerCase().includes(search)
-  );
+  const gladList = gladiators.filter((gladiator) => 
+    gladiator.name.toLocaleLowerCase().includes(search));
 
   if (gladList.length > 0) {
     res.json(gladList);
@@ -88,11 +114,11 @@ const getGladiatorByName = (req, res) => {
   }
 };
 
-app.get("/api", welcome);
-app.get("/api/gladiators", getAllGladiators);
-app.get("/api/gladiators/:id", getGladiatorsById);
-app.get("/api/search", getGladiatorByName);
+app.get('/api', welcome);
+app.get('/api/gladiators', getAllGladiators);
+app.get('/api/gladiators/:id', getGladiatorsById);
+app.get('/api/search', getGladiatorByName);
 
 app.listen(port, () => {
   console.info(`Le serveur tourne à la perfection sur le port ${port}`);
-});
+})
