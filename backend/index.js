@@ -1,5 +1,5 @@
-// const cors = require('cors');
-const express = require('express');
+const cors = require("cors");
+const express = require("express");
 
 const app = express();
 const port = 8000;
@@ -9,8 +9,8 @@ app.use(cors());
 const gladiators = [
   {
     id: 1,
-    name: 'Kamiculus',
-    overall: '6.75/10',
+    name: "Kamiculus",
+    overall: "6.75/10",
     attack: 10,
     defense: 7,
     dexterity: 3,
@@ -18,8 +18,8 @@ const gladiators = [
   },
   {
     id: 2,
-    name: 'Chichilus',
-    overall: '6.1/10',
+    name: "Chichilus",
+    overall: "6.1/10",
     attack: 5,
     defense: 7,
     dexterity: 7,
@@ -27,8 +27,8 @@ const gladiators = [
   },
   {
     id: 3,
-    name: 'Namycunus',
-    overall: '6.3/10',
+    name: "Namycunus",
+    overall: "6.3/10",
     attack: 5,
     defense: 8,
     dexterity: 7,
@@ -36,8 +36,8 @@ const gladiators = [
   },
   {
     id: 4,
-    name: 'Mansorus',
-    overall: '6.75/10',
+    name: "Mansorus",
+    overall: "6.75/10",
     attack: 9,
     defense: 3,
     dexterity: 6,
@@ -45,8 +45,8 @@ const gladiators = [
   },
   {
     id: 5,
-    name: 'Commodus',
-    overall: '4.7/10',
+    name: "Commodus",
+    overall: "4.7/10",
     attack: 7.5,
     defense: 4.5,
     dexterity: 5,
@@ -54,8 +54,8 @@ const gladiators = [
   },
   {
     id: 6,
-    name: 'Slavicus',
-    overall: '6.7/10',
+    name: "Slavicus",
+    overall: "6.7/10",
     attack: 7,
     defense: 5,
     dexterity: 9,
@@ -63,8 +63,8 @@ const gladiators = [
   },
   {
     id: 7,
-    name: 'Spartacus',
-    overall: '3.5/10',
+    name: "Spartacus",
+    overall: "3.5/10",
     attack: 4,
     defense: 5,
     dexterity: 4,
@@ -72,8 +72,8 @@ const gladiators = [
   },
   {
     id: 8,
-    name: 'Carpophorus',
-    overall: '5.5/10',
+    name: "Carpophorus",
+    overall: "5.5/10",
     attack: 1,
     defense: 10,
     dexterity: 1,
@@ -82,7 +82,7 @@ const gladiators = [
 ];
 
 const welcome = (req, res) => {
-  res.send('API GLADIATORS');
+  res.send("API GLADIATORS");
 };
 
 const getAllGladiators = (req, res) => {
@@ -104,8 +104,9 @@ const getGladiatorsById = (req, res) => {
 
 const getGladiatorByName = (req, res) => {
   const search = req.query.name.toLocaleLowerCase();
-  const gladList = gladiators.filter((gladiator) => 
-    gladiator.name.toLocaleLowerCase().includes(search));
+  const gladList = gladiators.filter((gladiator) =>
+    gladiator.name.toLocaleLowerCase().includes(search)
+  );
 
   if (gladList.length > 0) {
     res.json(gladList);
@@ -114,11 +115,11 @@ const getGladiatorByName = (req, res) => {
   }
 };
 
-app.get('/api', welcome);
-app.get('/api/gladiators', getAllGladiators);
-app.get('/api/gladiators/:id', getGladiatorsById);
-app.get('/api/search', getGladiatorByName);
+app.get("/api", welcome);
+app.get("/api/gladiators", getAllGladiators);
+app.get("/api/gladiators/:id", getGladiatorsById);
+app.get("/api/search", getGladiatorByName);
 
 app.listen(port, () => {
   console.info(`Le serveur tourne à la perfection sur le port ${port}`);
-})
+});
