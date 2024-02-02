@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom";
+
 import Head from "./components/Head";
 import Header from "./components/Header";
 import "./App.css";
@@ -12,7 +14,7 @@ function App() {
       <header>
         <Header />
       </header>
-      <Card />
+      <Outlet />
     </>
   );
 }

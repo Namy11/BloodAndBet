@@ -37,19 +37,14 @@ function Card() {
   const handleDuelClick = (id1, id2) => {
     console.log("Navigation vers la page de pari avec les ID:", id1, id2);
   };
+  console.info(duels);
 
   return (
     <div className="homepage">
       {duels.map((duel, index) => (
-        <DuelCard
-          key={index}
-          gladiator1={duel.gladiator1}
-          gladiator2={duel.gladiator2}
-          id1={duel.id1}
-          id2={duel.id2}
-          onDuelClick={handleDuelClick}
-        />
+        <DuelCard key={index} duel={duel} />
       ))}
+      coucou
     </div>
   );
 }
