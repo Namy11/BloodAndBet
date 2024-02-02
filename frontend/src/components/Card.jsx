@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DuelCard from "./DuelCard";
+import "../styles/DuelCard.css";
 
 function Card() {
   const [duels, setDuels] = useState([]);
@@ -40,16 +41,21 @@ function Card() {
 
   return (
     <div className="homepage">
-      {duels.map((duel, index) => (
-        <DuelCard
-          key={index}
-          gladiator1={duel.gladiator1}
-          gladiator2={duel.gladiator2}
-          id1={duel.id1}
-          id2={duel.id2}
-          onDuelClick={handleDuelClick}
-        />
-      ))}
+      <div className="Fight">
+        {duels.map((duel, index) => (
+          <DuelCard
+            key={index}
+            gladiator1={duel.gladiator1}
+            gladiator2={duel.gladiator2}
+            id1={duel.id1}
+            id2={duel.id2}
+            onDuelClick={handleDuelClick}
+          />
+        ))}
+      </div>
+      <div className="Panier">
+        <p>Panier</p>
+      </div>
     </div>
   );
 }

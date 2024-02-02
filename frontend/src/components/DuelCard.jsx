@@ -1,5 +1,6 @@
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
+import "../styles/DuelCard.css";
 
 function DuelCard({ gladiator1, gladiator2, id1, id2, onDuelClick }) {
   const handleDuelClick = () => {
