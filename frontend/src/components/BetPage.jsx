@@ -1,17 +1,31 @@
-import DuelCard from "./DuelCard";
+import { useParams, useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
 function BetPage() {
-  // Récupérer l'ID des combattants
+  const { id1, id2 } = useParams();
+
+  const gladiators = useLoaderData();
+
+  console.info(id1, id2);
+  console.info(gladiators);
 
   return (
-    <div className="betPage">
-      <DuelCard
-        gladiator1="Nom du gladiateur 1"
-        gladiator2="Nom du gladiateur 2"
-        id1="ID du gladiateur 1"
-        id2="ID du gladiateur 2"
-      />
-      {/*  Passer les noms et les ID des gladiateurs en tant que props */}
+    <div>
+      <h1>Page de Pari</h1>
+      <div>
+        {gladiators
+          .filter((gladiators) => gladiators.id)
+          .map((gladiator) => (
+            <div key={gladiator.id}>
+              <h2>{gladiator.name}</h2>
+              <p>Overall: {gladiator.overall}</p>
+              <p>Attaque: {gladiator.attack}</p>
+              <p>Défense: {gladiator.defense}</p>
+              <p>Dextérité: {gladiator.dexterity}</p>
+              <p>Résistance: {gladiator.resistance}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
