@@ -23,10 +23,12 @@
 }
 
 .RightSection span {
+  font-family: var(--font-title);
   margin-left: 10px;
   cursor: pointer;
 }
 .Logo span {
+  font-family: var(--font-title);
   cursor: pointer;
 }
 .Header span:hover {
