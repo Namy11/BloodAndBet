@@ -14,12 +14,13 @@
 }
 
 .Logo img {
-  width: 75px;
-  margin-right: 10px;
+  width: 55px;
+  margin-right: 30px;
 }
 
 .RightSection {
   display: flex;
+  margin-right: 10px;
 }
 
 .RightSection span {
